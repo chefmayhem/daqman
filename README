@@ -1,4 +1,4 @@
-README for daqman v0.1.1
+README for IU fork of daqman v0.1.1
 
 Notes on compiling, running, etc with the daqman system:
 
@@ -6,6 +6,10 @@ General info on daqman can be found on the github pages:
 http://bloer.github.io/daqman
 In particular, there is some doxygen code documentation at 
 http://bloer.github.io/daqman/doc/html
+
+We will aim for compatibility with ROOT 5.x and 6.x, so please make any ROOT
+version specific changes inside a
+IFDEF USE_ROOT_6 or IFNDEF USE_ROOT_6 block.
 
 Adding a ROOT class for saving:
 Two steps are necessary to generate a new dictionary to store a class in a ROOT file or tree.  First, in the class header file, you must call the macro 
