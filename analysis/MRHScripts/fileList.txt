@@ -1,0 +1,4 @@
+/home/mrheath/git/iu_daqman/daqman/cenns_160831_000_BKG.root 08.31.2016
+/home/mrheath/git/iu_daqman/daqman/cenns_160902_000_BKG.root 09.02.2016
+/home/mrheath/git/iu_daqman/daqman/cenns_160906_000_BKG.root 09.06.2016
+/home/mrheath/git/iu_daqman/daqman/cenns_160912_000_BKG.root 09.12.2016
