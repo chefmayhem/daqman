@@ -62,6 +62,10 @@ ROOTINCLUDEPATH := $(INCLUDES)
 INCLUDES    += -I/sw/include -I$(PWD) 
 #some systems want malloc
 INCLUDES    += -I/usr/include/malloc
+#put in our special build of boost too
+ifeq ("$(shell /bin/hostname)","sbdaq1.ceem.indiana.edu")
+INCLUDES    += -I/data/src/boost/boost_1_61_0
+endif
 
 
 #generic c++ and ld flags
@@ -79,10 +83,15 @@ CAENLIBS    := -L/usr/local/lib64 -lCAENVME -lCAENDigitizer
 ifeq ("$(shell /bin/hostname)","blackhole.lngs.infn.it")
 THREADLIBS  += -L/usr/local/lib64/boost -lboost_thread -lboost_date_time
 else
+# We have a problem where we aren't going to the up-to-date boost library (not mt)
+ifeq ("$(shell /bin/hostname)","sbdaq1.ceem.indiana.edu")
+THREADLIBS  += -L/data/src/boost/boost_1_61_0/stage/lib -lboost_thread -lboost_date_time
+else
 ifeq ("$(shell /sbin/ldconfig -p | grep libboost_thread-mt.so)","") 
 THREADLIBS  += -L/usr/local/lib64/boost -lboost_thread -lboost_date_time
 else
 THREADLIBS  += -lboost_thread-mt -lboost_date_time-mt
+endif
 endif
 endif
 #for Princeton machines
